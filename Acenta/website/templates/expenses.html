@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Expenses{% endblock %} {% block content
+%}
+<h1 align="center">Expenses</h1>
+<ul class="list-group list-group-flush" id="expenses">
+  {% for expense in user.expenses %}
+  <li class="list-group-item">
+    {{ expense.expense_name }}
+    ${{ expense.expense_amount }}
+    <button type="button" class="close" onClick="deleteExpense({{ expense.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+<!--  <h3 align="center">Expense List</h3>-->
+  <div class="form-group">
+    <label for="expenseName">Expense Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="expenseName"
+      name="expenseName"
+      placeholder="Enter Expense Name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="expenseAmount">Expense Amount</label>
+    <input
+      type="text"
+      class="form-control"
+      id="expenseAmount"
+      name="expenseAmount"
+      placeholder="Enter amount"
+    />
+  </div>
+
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Expense</button>
+  </div>
+</form>
+{% endblock %}

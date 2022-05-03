@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block title %}Savings Goals{% endblock %} {% block content
+%}
+<h1 align="center">Savings Goals</h1>
+<ul class="list-group list-group-flush" id="savingsgoals">
+  {% for savingsgoal in user.savingsgoals %}
+  <li class="list-group-item">
+    {{ savingsgoal.savingsgoal_name }}
+    ${{ savingsgoal.savingsgoal_amount }}
+    <button type="button" class="close" onClick="deleteSavingsGoal({{ savingsgoal.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+<!--  <h3 align="center">Expense List</h3>-->
+  <div class="form-group">
+    <label for="savingsgoalName">Savings Goal Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="savingsgoalName"
+      name="savingsgoalName"
+      placeholder="Enter Savings Goal Name"
+    />
+  </div>
+  <div class="form-group">
+    <label for="savingsgoalAmount">Savings Goal Amount</label>
+    <input
+      type="text"
+      class="form-control"
+      id="savingsgoalAmount"
+      name="savingsgoalAmount"
+      placeholder="Enter amount"
+    />
+  </div>
+
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Savings Goal</button>
+  </div>
+</form>
+{% endblock %}
