@@ -1,1 +1,0 @@
-<script src="path/to/chartjs/dist/chart.js"></script>
