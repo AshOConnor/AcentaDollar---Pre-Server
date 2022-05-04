@@ -14,6 +14,13 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       crossorigin="anonymous"
     />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+
     <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" />
 
     <title>{% block title %}Home{% endblock %}</title>
@@ -38,6 +45,8 @@
           <a class="nav-item nav-link" id="income" href="/income">Income</a>
           <a class="nav-item nav-link" id="savingsgoals" href="/savingsgoals">Savings Goals</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
+            <button class="btn-search"><i class="fas fa-search"></i></button>
+            <input type="text" class="input-search" placeholder="Type to Search...">
           {% else %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
@@ -49,11 +58,7 @@
 
     </nav>
 
-    <div align="center">
-        <image src="{{ url_for ('static', filename='img/logo.png')}}">
-    </div>
-
-    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}
     <div class="alert alert-danger alter-dismissable fade show" role="alert">
@@ -70,6 +75,10 @@
       </button>
     </div>
     {% endif %} {% endfor %} {% endif %} {% endwith %}
+
+    <div align="center">
+        <image src="{{ url_for ('static', filename='img/logo.png')}}">
+    </div>
 
     <div class="container">{% block content %} {% endblock %}</div>
     <script
