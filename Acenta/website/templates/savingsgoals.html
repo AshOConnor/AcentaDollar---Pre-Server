@@ -6,6 +6,7 @@
   <li class="list-group-item">
     {{ savingsgoal.savingsgoal_name }}
     ${{ savingsgoal.savingsgoal_amount }}
+    {{ savingsgoal.savingsgoal_date }}
     <button type="button" class="close" onClick="deleteSavingsGoal({{ savingsgoal.id }})">
       <span aria-hidden="true">&times;</span>
     </button>

@@ -6,6 +6,7 @@
   <li class="list-group-item">
     {{ income.income_name }}
     ${{ income.income_amount }}
+    {{ income.income_date }}
     <button type="button" class="close" onClick="deleteIncome({{ income.id }})">
       <span aria-hidden="true">&times;</span>
     </button>

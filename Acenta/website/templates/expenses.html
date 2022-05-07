@@ -6,6 +6,7 @@
   <li class="list-group-item">
     {{ expense.expense_name }}
     ${{ expense.expense_amount }}
+    {{ expense.expense_date }}
     <button type="button" class="close" onClick="deleteExpense({{ expense.id }})">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -27,7 +28,7 @@
   <div class="form-group">
     <label for="expenseAmount">Expense Amount</label>
     <input
-      type="text"
+      type="number" min="0.00"
       class="form-control"
       id="expenseAmount"
       name="expenseAmount"

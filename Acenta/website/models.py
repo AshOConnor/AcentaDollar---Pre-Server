@@ -1,6 +1,7 @@
 from . import db
 from flask_login import UserMixin
 from sqlalchemy.sql import func
+from datetime import date, datetime
 
 class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -20,21 +21,21 @@ class User(db.Model, UserMixin):
 
 class Expense(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    expense_name = db.Column(db.String(150), unique=True)
+    expense_name = db.Column(db.String(150))
     expense_amount = db.Column(db.String(150))
-    # date = db.Column(db.DateTime(timezone=True), default=func.now())
+    expense_date = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class Income(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    income_name = db.Column(db.String(150), unique=True)
+    income_name = db.Column(db.String(150))
     income_amount = db.Column(db.String(150))
-    # date = db.Column(db.DateTime(timezone=True), default=func.now())
+    income_date = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class SavingsGoal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    savingsgoal_name = db.Column(db.String(150), unique=True)
+    savingsgoal_name = db.Column(db.String(150))
     savingsgoal_amount = db.Column(db.String(150))
-    # date = db.Column(db.DateTime(timezone=True), default=func.now())
+    savingsgoal_date = db.Column(db.Date)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
