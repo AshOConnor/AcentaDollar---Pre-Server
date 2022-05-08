@@ -23,7 +23,10 @@
 
     <link href="{{url_for('static', filename='css/main.css')}}" rel="stylesheet" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+            integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
@@ -43,18 +46,16 @@
         <div class="navbar-nav">
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
-          <a class="nav-item nav-link" id="expenses" href="/expenses">Expenses</a>
           <a class="nav-item nav-link" id="income" href="/income">Income</a>
+          <a class="nav-item nav-link" id="expenses" href="/expenses">Expenses</a>
           <a class="nav-item nav-link" id="savingsgoals" href="/savingsgoals">Savings Goals</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-          <a class="nav-item nav-link" id="dashboard" href="/dashboard">Dashboard</a>
             <button class="btn-search"><i class="fas fa-search"></i></button>
             <input type="text" class="input-search" placeholder="Type to Search...">
           {% else %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
           <a class="nav-item nav-link" id="signUp" href="/sign-up">Sign Up</a>
-          <a class="nav-item nav-link" id="dashboard" href="/dashboard">Dashboard</a>
           {% endif %}
         </div>
       </div>

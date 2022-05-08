@@ -6,15 +6,15 @@
 <!--        <image src="{{ url_for ('static', filename='img/savingsgraph.png')}}">-->
 <!--    </div>-->
 
-<div class="col-xs-10 col-sm-6 col-md-6">
+<center><div class="col-xs-10 col-sm-6 col-md-6" xmlns="http://www.w3.org/1999/html">
     <div class="card card-style mb-2">
         <div class="card-body">
-            <div class="chart-container" style="position: relative;">
-                <canvas id="income_vs_expense"></canvas>
+            <div class="chart-container" style="position: absolute;">
+                <canvas id="income_vs_expense" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
-</div>
+</div></center>
 
 
 {% block javascript  %}
@@ -29,7 +29,7 @@
     let income_vs_expense_chart = new Chart(income_vs_expense, {
         type: 'pie',
         data: {
-        labels: ['Expense', 'Income'],
+        labels: ['Income', 'Expense'],
             datasets: [{
                 label: "Income Vs Expenses",
                 data: income_vs_expenses,
@@ -63,6 +63,7 @@
         }
     })
 </script>
+
 {% endblock %}
 
 {% endblock %}
