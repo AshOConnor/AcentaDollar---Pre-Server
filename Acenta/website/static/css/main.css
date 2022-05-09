@@ -5,6 +5,34 @@ body {
   background-size: cover;
 }
 
+h1 {
+  font-family: ;
+  font-size: 50px;
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+.form-group  {
+  font-family: ;
+  font-size: 32px;
+}
+
+.list-group-item {
+  font-family: ;
+  font-size: 22px;
+}
+
+.form-control {
+  font-family: ;
+  font-size: 18px;
+}
+
 .navbar-nav{
   width: fit-content;
   height: fit-content;

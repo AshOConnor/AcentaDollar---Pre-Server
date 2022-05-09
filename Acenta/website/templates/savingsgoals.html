@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}Savings Goals{% endblock %} {% block content
 %}
 <h1 align="center">Savings Goals</h1>
+    <br>
 <ul class="list-group list-group-flush" id="savingsgoals">
   {% for savingsgoal in user.savingsgoals %}
   <li class="list-group-item">
@@ -8,8 +9,12 @@
     ${{ savingsgoal.savingsgoal_amount }}
     {{ savingsgoal.savingsgoal_date }}
     <button type="button" class="close" onClick="deleteSavingsGoal({{ savingsgoal.id }})">
-      <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
     </button>
+      <br>
+     <button type="button" class="close" onclick="editSavingsGoal({{ savingsgoal.id }})">
+          <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
+     </button>
   </li>
   {% endfor %}
 </ul>
@@ -50,4 +55,5 @@
     <button type="submit" class="btn btn-primary">Add Savings Goal</button>
   </div>
 </form>
+    <br><br>
 {% endblock %}

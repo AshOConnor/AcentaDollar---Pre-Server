@@ -1,6 +1,7 @@
 {% extends "base.html" %} {% block title %}Income{% endblock %} {% block content
 %}
 <h1 align="center">Income</h1>
+    <br>
 <ul class="list-group list-group-flush" id="income">
   {% for income in user.income %}
   <li class="list-group-item">
@@ -8,7 +9,11 @@
     ${{ income.income_amount }}
     {{ income.income_date }}
     <button type="button" class="close" onClick="deleteIncome({{ income.id }})">
-      <span aria-hidden="true">&times;</span>
+      <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+    </button>
+      <br>
+    <button type="button" class="close" onclick="editIncome({{ income.id }})">
+          <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
     </button>
   </li>
   {% endfor %}
@@ -51,4 +56,5 @@
     <button type="submit" class="btn btn-primary">Add Income</button>
   </div>
 </form>
+    <br><br>
 {% endblock %}
