@@ -2,6 +2,34 @@
 %}
 <h1 align="center">Income</h1>
     <br>
+<<<<<<< HEAD
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Edit/Delete</th>
+    </tr>
+{% for income in user.income %}
+	<tr>
+	  <td>{{ income.income_name }}</td>
+      <td>${{ income.income_amount }}</td>
+      <td>{{ income.income_date }}</td>
+      <td>
+        <button type="button" class="close" onClick="deleteIncome({{ income.id }})">
+        <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+        </button>
+        <button type="button" class="close" onclick="editIncome({{ income.id }})">
+        <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
+        </button>
+      </td>
+	</tr>
+{% endfor %}
+
+</table>
+
+=======
 <ul class="list-group list-group-flush" id="income">
   {% for income in user.income %}
   <li class="list-group-item">
@@ -18,8 +46,8 @@
   </li>
   {% endfor %}
 </ul>
+>>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
 <form method="POST">
-<!--  <h3 align="center">Expense List</h3>-->
   <div class="form-group">
     <label for="incomeName">Income Name</label>
     <input
@@ -33,7 +61,7 @@
   <div class="form-group">
     <label for="incomeAmount">Income Amount</label>
     <input
-      type="text"
+      type="number" min="0.00"
       class="form-control"
       id="incomeAmount"
       name="incomeAmount"

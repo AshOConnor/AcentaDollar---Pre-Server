@@ -3,10 +3,15 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
-
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 auth = Blueprint('auth', __name__)
 
+class UserForm(FlaskForm):
+    name = StringField("Enter Name", validators=[DataRequired()])
+    submit = SubmitField("Submit")
 
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
@@ -37,6 +42,7 @@ def logout():
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
+
     if request.method == 'POST':
         email = request.form.get('email')
         first_name = request.form.get('firstName')

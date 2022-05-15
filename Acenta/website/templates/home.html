@@ -1,29 +1,54 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
-<!--<h1 align="center">AcentaDollar</h1>-->
-<!--<h2 align="center">Keep track of your expenses and finally reach your savings goals with AcentaDollar</h2>-->
-<!--    <div align="center">-->
-<!--        <image src="{{ url_for ('static', filename='img/savingsgraph.png')}}">-->
-<!--    </div>-->
 
+<<<<<<< HEAD
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-20">
+        <div class="card-body">
+            <div class="chart-container" >
+                <canvas id="income_vs_expense" width=400 height="400"></canvas>
+=======
 <center><div class="col-xs-10 col-sm-6 col-md-6" xmlns="http://www.w3.org/1999/html">
     <div class="card card-style mb-2">
         <div class="card-body">
             <div class="chart-container" style="position: absolute;">
                 <canvas id="income_vs_expense" width="400" height="400"></canvas>
+>>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
             </div>
         </div>
     </div>
 </div></center>
 
 
+
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" >
+                <canvas id="expenses_over_time" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-10 col-sm-6 col-md-6">
+    <div class="card card-style mb-2">
+        <div class="card-body">
+            <div class="chart-container" >
+                <canvas id="income_over_time" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 {% block javascript  %}
 <script>
-<!--    Chart.scaleService.updateScaleDefaults('linear', {-->
-<!--            ticks: {-->
-<!--                min: 0-->
-<!--            }-->
-<!--    });-->
+    Chart.scaleService.updateScaleDefaults('linear', {
+            ticks: {
+                min: 0
+            }
+    });
 
     let income_vs_expenses = JSON.parse ({{ income_vs_expenses | tojson }})
     let income_vs_expense_chart = new Chart(income_vs_expense, {
@@ -61,7 +86,48 @@
                     hitRadius: 3,
                 }
         }
-    })
+    });
+
+    let expense_labels = JSON.parse ({{ expense_dates_label | tojson }})
+    let expense_amounts = JSON.parse ({{ expense_over_time | tojson }})
+    let expense_names = JSON.parse ({{ expense_name | tojson }})
+
+            new Chart(document.getElementById("expenses_over_time"), {
+                type: "line",
+                data:
+                {
+                    labels: expense_labels,
+                    datasets: [{
+                        label: "Expenses",
+                        data: expense_amounts,
+                        fill: false,
+                        borderColor: "rgb(75, 192, 192)",
+                        lineTension: 0.1
+                    }]
+                },
+                options: {}
+            });
+
+    let income_labels = JSON.parse ({{ income_dates_label | tojson }})
+    let income_amounts = JSON.parse ({{ income_over_time | tojson }})
+    let income_names = JSON.parse ({{ income_name | tojson }})
+
+            new Chart(document.getElementById("income_over_time"), {
+                type: "line",
+                data:
+                {
+                    labels: income_labels,
+                    datasets: [{
+                        label: "Income",
+                        data: income_amounts,
+                        fill: false,
+                        borderColor: "rgb(75, 192, 192)",
+                        lineTension: 0.1
+                    }]
+                },
+                options: {}
+            });
+
 </script>
 
 {% endblock %}

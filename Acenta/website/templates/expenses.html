@@ -2,6 +2,29 @@
 %}
 <h1 align="center">Expenses</h1>
     <br>
+<<<<<<< HEAD
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Edit/Delete</th>
+    </tr>
+  {% for expense in user.expenses %}
+  <tr>
+	  <td><a href="{{ url_for('views.edit_expense', id=expense.id)}}">{{ expense.expense_name }}</a></td>
+      <td>${{ expense.expense_amount }}</td>
+      <td>{{ expense.expense_date }}</td>
+      <td>
+        <button type="button" class="close" onClick="deleteExpense({{ expense.id }})">
+        <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+        </button>
+        <button type="button" class="close" onclick="editExpense({{ expense.id }})">
+        <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
+        </button>
+      </td>
+    </tr>
+=======
 <ul class="list-group list-group-flush" id="expenses">
   {% for expense in user.expenses %}
   <li class="list-group-item">
@@ -16,8 +39,11 @@
           <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
     </button>
   </li>
+>>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
   {% endfor %}
-</ul>
+
+</table>
+
 <form method="POST">
 <!--  <h3 align="center">Expense List</h3>-->
   <div class="form-group">

@@ -1,12 +1,3 @@
-/// delete note is example of js function///
-function deleteNote(noteId) {
-  fetch("/delete-note", {
-    method: "POST",
-    body: JSON.stringify({ noteId: noteId }),
-  }).then((_res) => {
-    window.location.href = "/";
-  });
-}
 
 function deleteExpense(expenseId) {
   fetch("/delete-expense", {
@@ -32,5 +23,14 @@ function deleteSavingsGoal(savingsgoalId) {
     body: JSON.stringify({ savingsgoalId: savingsgoalId }),
   }).then((_res) => {
     window.location.href = "/savingsgoals";
+  });
+}
+
+function editExpense(expenseId) {
+  fetch("/edit-expense/<int:id>", {
+    method: "POST",
+    body: JSON.stringify({ expenseId: expenseId }),
+  }).then((_res) => {
+    window.location.href = "/expenses";
   });
 }

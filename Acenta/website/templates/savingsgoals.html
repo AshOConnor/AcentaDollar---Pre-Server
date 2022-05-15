@@ -2,6 +2,29 @@
 %}
 <h1 align="center">Savings Goals</h1>
     <br>
+<<<<<<< HEAD
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Edit/Delete</th>
+    </tr>
+  {% for savingsgoal in user.savingsgoals %}
+  <tr>
+    <td>{{ savingsgoal.savingsgoal_name }}</td>
+    <td>${{ savingsgoal.savingsgoal_amount }}</td>
+    <td>{{ savingsgoal.savingsgoal_date }}</td>
+    <td>
+      <button type="button" class="close" onClick="deleteSavingsGoal({{ savingsgoal.id }})">
+      <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
+      </button>
+      <button type="button" class="close" onclick="editSavingsGoal({{ savingsgoal.id }})">
+      <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
+      </button>
+    </td>
+
+=======
 <ul class="list-group list-group-flush" id="savingsgoals">
   {% for savingsgoal in user.savingsgoals %}
   <li class="list-group-item">
@@ -16,8 +39,9 @@
           <span aria-hidden="true"><i class="fas fa-edit fa-sm"></i></span>
      </button>
   </li>
+>>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
   {% endfor %}
-</ul>
+</table>
 <form method="POST">
 <!--  <h3 align="center">Expense List</h3>-->
   <div class="form-group">
@@ -33,7 +57,7 @@
   <div class="form-group">
     <label for="savingsgoalAmount">Savings Goal Amount</label>
     <input
-      type="text"
+      type="number" min="0.00"
       class="form-control"
       id="savingsgoalAmount"
       name="savingsgoalAmount"
