@@ -54,8 +54,10 @@
 
       <form method="POST" action="{{ url_for('views.search')}}" class="d-flex">
         {{ form.hidden_tag() }}
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="searched">
-        <button class="btn btn-outline-secondary" type="submit">Search</button>
+        <div class="search-box">
+        <button class="btn-search" type="submit"><i class="fas fa-search fa-sm"></i></button>
+        <input class="input-search" type="search" placeholder="Type to Search" aria-label="Search" name="searched">
+        </div>
       </form>
 
 <!--            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>-->

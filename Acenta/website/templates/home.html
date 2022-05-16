@@ -1,34 +1,23 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
 
-<div class="col-xs-10 col-sm-6 col-md-6">
-    <div class="card card-style mb-20">
-        <div class="card-body">
+<center><div class="IncomeC">
             <div class="chart-container" >
-                <canvas id="income_vs_expense" width=400 height="400"></canvas>
+                <canvas id="income_over_time" width="350" height="350"></canvas>
             </div>
-        </div>
-    </div>
-</div>
+        </div></center>
 
-<div class="col-xs-10 col-sm-6 col-md-6">
-    <div class="card card-style mb-2">
-        <div class="card-body">
+<center><div class="IEC">
             <div class="chart-container" >
-                <canvas id="expenses_over_time" width="400" height="400"></canvas>
+                <canvas id="income_vs_expense" width="350" height="350"></canvas>
             </div>
-        </div>
-    </div>
-</div>
-<div class="col-xs-10 col-sm-6 col-md-6">
-    <div class="card card-style mb-2">
-        <div class="card-body">
+        </div></center>
+
+<center><div class="ExpenseC">
             <div class="chart-container" >
-                <canvas id="income_over_time" width="400" height="400"></canvas>
+                <canvas id="expenses_over_time" width="350" height="350"></canvas>
             </div>
-        </div>
-    </div>
-</div>
+        </div></center>
 
 
 
@@ -119,6 +108,7 @@
             });
 
 </script>
+
 
 {% endblock %}
 
