@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Search{% endblock %}
+
+{% block content%}
+    <br/>
+    <h2>Results for '{{ searched }}'</h2>
+<br>
+
+<table class="table table-hover table-bordered table-striped">
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+    {% for income in income %}
+	<tr>
+	    <td>Income</td>
+        <td>{{ income.income_name }}</td>
+        <td>${{ income.income_amount }}</td>
+      <td>{{ income.income_date }}</td>
+    </tr>
+        {% endfor %}
+
+    {% for expense in expenses %}
+    <tr>
+	    <td>Expense</td>
+        <td>{{ expense.expense_name }}</td>
+      <td>${{ expense.expense_amount }}</td>
+      <td>{{ expense.expense_date }}</td>
+    </tr>
+        {% endfor %}
+</table>
+
+</div>
+{% endblock %}
