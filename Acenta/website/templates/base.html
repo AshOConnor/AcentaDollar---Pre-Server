@@ -27,11 +27,8 @@
             integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-<<<<<<< HEAD
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-=======
->>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
@@ -54,7 +51,6 @@
           <a class="nav-item nav-link" id="expenses" href="/expenses">Expenses</a>
           <a class="nav-item nav-link" id="savingsgoals" href="/savingsgoals">Savings Goals</a>
           <a class="nav-item nav-link" id="logout" href="/logout">Logout</a>
-<<<<<<< HEAD
 
       <form method="POST" action="{{ url_for('views.search')}}" class="d-flex">
         {{ form.hidden_tag() }}
@@ -64,10 +60,6 @@
 
 <!--            <button type="submit" class="btn-search"><i class="fas fa-search"></i></button>-->
 <!--            <input type="text" class="input-search" name= "searched" placeholder="Type to Search...">-->
-=======
-            <button class="btn-search"><i class="fas fa-search"></i></button>
-            <input type="text" class="input-search" placeholder="Type to Search...">
->>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
           {% else %}
           <a class="nav-item nav-link" id="home" href="/">Home</a>
           <a class="nav-item nav-link" id="login" href="/login">Login</a>
@@ -78,11 +70,6 @@
 
     </nav>
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
   {% with messages = get_flashed_messages(with_categories=true) %} {% if
     messages %} {% for category, message in messages %} {% if category ==
     'error' %}

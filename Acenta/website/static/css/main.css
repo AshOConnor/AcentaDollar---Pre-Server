@@ -90,11 +90,7 @@ h3 {
 }
 
 .card-body {
-<<<<<<< HEAD
   position: relative;
-=======
-  position: absolute;
->>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
 }
 
 .col-xs-10 col-sm-6 col-md-6 {
@@ -106,7 +102,6 @@ h3 {
 }
 
 .chart-container {
-<<<<<<< HEAD
   position: relative;
 }
 
@@ -121,7 +116,4 @@ h3 {
     float: left;
     padding: 20px;
     border: 2px solid red;
-=======
-  position: absolute;
->>>>>>> 4d317106e9fbd339d7b00ad75ba1edc8760f073e
 }
