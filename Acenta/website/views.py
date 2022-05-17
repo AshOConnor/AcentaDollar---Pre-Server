@@ -18,8 +18,8 @@ def home():
     income = db.session.query(db.func.sum(Income.income_amount), Income.user_id).filter(Income.user_id == current_user.id).all()
     expense = db.session.query(db.func.sum(Expense.expense_amount), Expense.user_id).filter(Expense.user_id == current_user.id).all()
 
-    expense_dates = db.session.query(db.func.sum(Expense.expense_amount), Expense.expense_name, Expense.expense_date). group_by(Expense.expense_date).order_by(Expense.expense_date).all()
-    income_dates = db.session.query(db.func.sum(Income.income_amount), Income.income_name, Income.income_date). group_by(Income.income_date).order_by(Income.income_date).all()
+    income_dates = db.session.query(db.func.sum(Income.income_amount), Income.income_date, Income.user_id).filter(Income.user_id == current_user.id).group_by(Income.income_date).order_by(Income.income_date).all()
+    expense_dates = db.session.query(db.func.sum(Expense.expense_amount), Expense.expense_date, Expense.user_id).filter(Expense.user_id == current_user.id).group_by(Expense.expense_date).order_by(Expense.expense_date).all()
 
     income_expense = []
     for total_amount, _ in income:
@@ -29,27 +29,21 @@ def home():
         income_expense.append(total_amount)
 
     expense_over_time = []
-    expense_name = []
     expense_dates_label = []
-    for amount, name, date in expense_dates:
-        expense_dates_label.append(date.strftime("%m-%d-%y"))
-        expense_name.append(name)
-        expense_over_time.append(amount)
+    for exp_amount, exp_date, exp_id in expense_dates:
+        expense_dates_label.append(exp_date.strftime("%m-%d-%y"))
+        expense_over_time.append(exp_amount)
 
     income_over_time = []
-    income_name = []
     income_dates_label = []
-    for amount, name, date in income_dates:
-        income_dates_label.append(date.strftime("%m-%d-%y"))
-        income_name.append(name)
-        income_over_time.append(amount)
+    for inc_amount, inc_date, inc_id in income_dates:
+        income_dates_label.append(inc_date.strftime("%m-%d-%y"))
+        income_over_time.append(inc_amount)
 
     return render_template("home.html", user=current_user, income_vs_expenses = json.dumps(income_expense),
                            expense_over_time=json.dumps(expense_over_time),
-                           expense_name=json.dumps(expense_name),
                            expense_dates_label=json.dumps(expense_dates_label),
                            income_over_time=json.dumps(income_over_time),
-                           income_name=json.dumps(income_name),
                            income_dates_label=json.dumps(income_dates_label)
                            )
 

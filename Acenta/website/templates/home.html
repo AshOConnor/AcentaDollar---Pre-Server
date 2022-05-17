@@ -69,7 +69,6 @@
 
     let expense_labels = JSON.parse ({{ expense_dates_label | tojson }})
     let expense_amounts = JSON.parse ({{ expense_over_time | tojson }})
-    let expense_names = JSON.parse ({{ expense_name | tojson }})
 
             new Chart(document.getElementById("expenses_over_time"), {
                 type: "line",
@@ -89,7 +88,6 @@
 
     let income_labels = JSON.parse ({{ income_dates_label | tojson }})
     let income_amounts = JSON.parse ({{ income_over_time | tojson }})
-    let income_names = JSON.parse ({{ income_name | tojson }})
 
             new Chart(document.getElementById("income_over_time"), {
                 type: "line",

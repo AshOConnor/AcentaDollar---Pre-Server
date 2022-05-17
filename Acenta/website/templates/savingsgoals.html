@@ -13,7 +13,7 @@
   <tr>
     <td>{{ savingsgoal.savingsgoal_name }}</td>
     <td>${{ savingsgoal.savingsgoal_amount }}</td>
-    <td>{{ savingsgoal.savingsgoal_date }}</td>
+    <td>{{ savingsgoal.savingsgoal_date.strftime('%d-%m-%Y')  }}</td>
     <td>
       <button type="button" class="close" onClick="deleteSavingsGoal({{ savingsgoal.id }})">
       <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>

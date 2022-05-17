@@ -13,7 +13,7 @@
   <tr>
 	  <td><a href="{{ url_for('views.edit_expense', id=expense.id)}}">{{ expense.expense_name }}</a></td>
       <td>${{ expense.expense_amount }}</td>
-      <td>{{ expense.expense_date }}</td>
+      <td>{{ expense.expense_date.strftime('%d-%m-%Y')  }}</td>
       <td>
         <button type="button" class="close" onClick="deleteExpense({{ expense.id }})">
         <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>

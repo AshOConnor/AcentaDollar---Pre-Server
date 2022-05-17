@@ -14,7 +14,7 @@
 	<tr>
 	  <td>{{ income.income_name }}</td>
       <td>${{ income.income_amount }}</td>
-      <td>{{ income.income_date }}</td>
+      <td>{{ income.income_date.strftime('%d-%m-%Y')  }}</td>
       <td>
         <button type="button" class="close" onClick="deleteIncome({{ income.id }})">
         <span aria-hidden="true"><i class="fa-solid fa-circle-xmark"></i></span>
